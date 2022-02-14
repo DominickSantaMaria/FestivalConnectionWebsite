@@ -1,0 +1,34 @@
+<%- include('header.ejs')%>
+
+        <main>
+            <div class = "content">
+                <form action = '/login' method = 'POST'>
+                    <table>
+                        <tr>
+                            <td><label for="email">Email</label></td>
+                            <td><input type="text" id="email" name="email" class = "fixed-width"required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password</label></td>
+                            <td><input type="text" id="password" name="password" class = "fixed-width" minLength = "8" maxLength = "64" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"  class = "align-middle"><button>Login</button></td>
+                        </tr>
+                    </table>        
+                </form>
+            
+                </div>
+        </main>
+<%- include('footer.ejs')%>
+<%if(errorMessages.length > 0) {
+    errorMessages.forEach(message=>{%>
+        <div class = "error"><%=message%></div>
+  <%  });
+}%>
+
+<%if(successMessages.length > 0) {
+    successMessages.forEach(message=>{%>
+        <div class = "success"><%=message%></div>
+  <%  });
+}%>

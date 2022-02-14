@@ -1,0 +1,33 @@
+<%- include('header.ejs')%>
+<main>
+    <div class = "content">
+        <h4><%= story.title%></h4>
+        <small>Posted <%= story.createdAt.toLocaleString()%> by <%= story.author.firstName + ' ' + story.author.lastName%></small>
+        <div id = "story"><%= story.content%></div>
+        <%if(user == story.author._id){%>
+          <form>
+             <button type = "submit" formmethod = "GET" formaction = "/stories/<%= story.id%>/edit">Edit</button>
+             <button type = "submit" formmethod = "POST" formaction = "/stories/<%= story.id%>?_method=DELETE">Delete</button>
+          </form>
+        <%}else if(user && user!= story.author._id){%>
+          <form>
+            <h4>Are you going to RSVP?</h4>
+            <button type = "submit" formmethod = "POST" formaction = "/stories/<%= story._id%>/rsvp" name = "rsvp" value="YES">Yes</button>
+            <button type = "submit" formmethod = "POST" formaction = "/stories/<%= story._id%>/rsvp"name = "rsvp"value="NO">No</button>
+            <button type = "submit" formmethod = "POST" formaction = "/stories/<%= story._id%>/rsvp"name = "rsvp"value="MAYBE">Maybe</button>
+         </form>
+          <%}%>
+    </div>
+</main>
+<%- include('footer.ejs')%>
+<%if(errorMessages.length > 0) {
+    errorMessages.forEach(message=>{%>
+        <div class = "error"><%=message%></div>
+  <%  });
+}%>
+
+<%if(successMessages.length > 0) {
+    successMessages.forEach(message=>{%>
+        <div class = "success"><%=message%></div>
+  <%  });
+}%>

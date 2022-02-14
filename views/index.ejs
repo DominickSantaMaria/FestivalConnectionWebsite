@@ -1,0 +1,24 @@
+<%- include('header.ejs')%>
+        <main>
+            <p class="maininfo">Festival connections is known for connecting people with other music festival lovers. You will never forget a festival date, time or price as you can chat others and discuss meetups, songs, and so much more! Connect with fellow music festival goers today, click the connections tab.
+            </p>
+            <p class="maininfo">We are expanding to include more festivals and venues every day</p>
+           
+        </main>
+        <div class="indexContent">
+            <img src="/images/3.jpg" width="300" height= "300" ;>
+            <img src="/images/2.jpg" width="500" height= "300" ;>
+            <img src="/images/33.jpg" width="300" height= "300" ;>
+        </div>
+<%- include('footer.ejs')%>
+<%if(errorMessages.length > 0) {
+    errorMessages.forEach(message=>{%>
+        <div class = "error"><%=message%></div>
+  <%  });
+}%>
+
+<%if(successMessages.length > 0) {
+    successMessages.forEach(message=>{%>
+        <div class = "success"><%=message%></div>
+  <%  });
+}%>

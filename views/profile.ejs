@@ -1,0 +1,42 @@
+<%- include('header.ejs')%>
+        <main>
+            <h2 class="maininfo">Welcome, <%= user.firstName + " " + user.lastName%> </h2>
+            <%if(stories.length){%>
+                <p>You have created the following stories</p>
+                <%stories.forEach(story =>{%>
+                    <a href = '/stories/<%= story.id%>'><p><%=story.title%></p></a>
+                <%});
+            } else {%>
+                <p>You have not created any stories</p>
+            <%}%>
+
+            <%if(stories.length ){%>
+                <p>You have RSVP'd for the following</p>
+                <%stories.forEach(story =>{%>
+                    <a href = '/stories/<%= story.id%>'><p><%=story.title%></p></a>
+                <%});
+            } else {%>
+                <p>Current RSVP's</p>
+               
+            <%}%>
+            </p>
+            <p class="maininfo"></p>
+           
+        </main>
+        <div class="indexContent">
+            
+        </div>
+
+        
+<%- include('footer.ejs')%>
+<%if(errorMessages.length > 0) {
+    errorMessages.forEach(message=>{%>
+        <div class = "error"><%=message%></div>
+  <%  });
+}%>
+
+<%if(successMessages.length > 0) {
+    successMessages.forEach(message=>{%>
+        <div class = "success"><%=message%></div>
+  <%  });
+}%>

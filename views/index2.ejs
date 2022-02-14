@@ -1,0 +1,25 @@
+<%- include('header.ejs')%>
+    <main>
+    <div class = "content">
+        <%if(stories.length) {%>
+            <h2 class='conheader'>Select topic to get involved!</h2>
+            <%stories.forEach(story=>{%>
+                <a href='/stories/<%= story._id%>'><p class='contitle'><%= story.title%></p></a>
+            <% });
+        } else {%>
+            <p>There are no stories to display.</p>
+        <%}%>
+    </div>
+    </main>
+<%- include('footer.ejs')%>
+<%if(errorMessages.length > 0) {
+    errorMessages.forEach(message=>{%>
+        <div class = "error"><%=message%></div>
+  <%  });
+}%>
+
+<%if(successMessages.length > 0) {
+    successMessages.forEach(message=>{%>
+        <div class = "success"><%=message%></div>
+  <%  });
+}%>

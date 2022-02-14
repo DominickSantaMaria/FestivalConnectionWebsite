@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+            <title>Festival Connection</title>
+            <h1>
+                Festival Connection
+                <a href="/"><img src="/images/logos.jpg" ></a>
+            </h1>
+            
+            <link rel="stylesheet" href="/css/style.css"/>
+            <script src="page.js"></script>
+    
+            
+
+            <div class="navBar">
+                <a href='/'>Home</a>
+                <a href="/stories">Connections</a>
+                <a href="/stories/new">Create a New Connection</a>
+                <%if(!user){%>
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+                <%} else {%>
+                <a href="/logout">Logout</a>
+                <a href="/profile">Profile</a>
+                <%}%>
+                
+                
+                
+            </div>
+
+            
+            
+
+            
+
+        </header>
+
+        
